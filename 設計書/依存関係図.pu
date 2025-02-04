@@ -1,0 +1,29 @@
+@startuml CUI券売機シミュレーターを作る
+
+' タイトル
+class "CUI券売機シミュレーターを作る" as Project{
+    +タイトルを表示する()
+    +シミュレーション画面を作る()
+    +管理画面を作る()
+}
+
+' タスク
+class "タイトルを表示させる" as DisplayTitle{
+    -タイトル: String
+    -キーイベント()
+}
+class "シミュレーション画面を作る" as SimulationScreen{
+    -メニュー: String
+    -支払い()
+}
+class "管理画面を作る" as AdminScreen{
+    -売上一覧: String
+    -管理メニュー()
+}
+
+' 依存関係を示す
+Project -> DisplayTitle
+Project -> SimulationScreen
+Project -> AdminScreen
+
+@enduml
