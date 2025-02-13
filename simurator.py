@@ -8,7 +8,7 @@ print('please enter')
 # 商品リスト（商品番号: [商品名, 価格]）
 
 def on_enter_press():
-    pass
+    print('\n商品      金額\n=======================\n1.特製ラーメン 1000円\n2.醤油ラーメン 780円\n3.しおラーメン 880円\n4.ごはん 150円')
 
 def on_esc_press():
     pass
