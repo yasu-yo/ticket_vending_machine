@@ -4,7 +4,7 @@ import os
 print('**********************\n券売機シミュレーター\n**********************')
 
 # 商品リスト（商品番号: [商品名, 価格]）
-menu = [('特製ラーメン', 1000), ('醬油ラーメン', 780), ('塩ラーメン', 880), ('ごはん', 150)]
+menu = [['特製ラーメン', 1000, 0], ['醬油ラーメン', 780, 0], ['塩ラーメン', 880, 0], ['ごはん', 150, 0]]
 
 def simulate_vending_machine():
     print('\n商品      金額\n=======================\n1.特製ラーメン 1000円\n2.醤油ラーメン 780円\n3.しおラーメン 880円\n4.ごはん 150円')
@@ -13,13 +13,17 @@ def simulate_vending_machine():
     while True: 
         choice = input('購入する商品番号(支払いに進む場合はc)>').strip()
         if choice == 'c':
-            # print(f'お会計: {total}円')
+            print(f'\n 商品　　　　数量\n1.特性ラーメン {menu[0][2]}\n2. 醤油ラーメン{menu[1][2]}\n3.塩ラーメン {menu[2][2]}\n4.ごはん {menu[3][2]}\n===\n合計{total}円')
             break
         elif choice in ['1', '2', '3', '4']:
             total += menu[int(choice)-1][1]
+            menu[int(choice)-1][2] += 1
             # print(f'合計金額: {total}円')
         else:
             print('1から4、またはcを押してください')
+    
+    dep = int(input('現金を投入してください>'))
+    print(f'ご購入ありがとうございます。おつり{dep - total}円です')
 
 def main():
     while True:
