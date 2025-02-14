@@ -25,6 +25,11 @@ def simulate_vending_machine():
             print('1から4、またはcを押してください')
     
     dep = int(input('現金を投入してください>'))
+    while True:
+        if dep < total:
+            dep += int(input("金額が不足しています！>"))
+        else:
+            break
     print(f'ご購入ありがとうございます。おつり{dep - total}円です')
     # 必要に応じてグローバル変数をリセットする場合
     menu = [['特製ラーメン', 1000, 0], ['醬油ラーメン', 780, 0], ['塩ラーメン', 880, 0], ['ごはん', 150, 0]]
