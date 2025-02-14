@@ -41,6 +41,7 @@ def Management_screen():
             temp_dep = [0,0,0,0]
             print(f"売上をリセットしました。\n======= 商品一覧 =======\n\n商品      単価  販売数  売上金額\n\n=======================\n1.特製ラーメン 1000円  {temp_dep[0]}   {(menu[0][1])*(temp_dep[0])}円\n2.醤油ラーメン 780円   {temp_dep[1]}     {(menu[1][1])*(temp_dep[1])}\n3.しおラーメン 880円     {temp_dep[2]}     {(menu[2][1])*(temp_dep[2])}円\n4.ごはん 150円      {temp_dep[3]}        {(menu[3][1])*(temp_dep[3])}円\n\n\n———\n総売上金額 {(menu[0][1])*(temp_dep[0])+(menu[1][1])*(temp_dep[1])+(menu[2][1])*(temp_dep[2])+(menu[3][1])*(temp_dep[3])}円")
             print('=== 管理メニュー===\n1.売上をリセットする\n2.商品の価格を変更する\n※売上がリセットされていないと利用できません。\n3.管理画面を終了する')
+            break
         elif mana_code == 2:
             print(f"======= 商品一覧 =======\n\n商品      単価  販売数  売上金額\n\n=======================\n1.特製ラーメン 1000円  {temp_dep[0]}   {(menu[0][1])*(temp_dep[0])}円\n2.醤油ラーメン 780円   {temp_dep[1]}     {(menu[1][1])*(temp_dep[1])}\n3.しおラーメン 880円     {temp_dep[2]}     {(menu[2][1])*(temp_dep[2])}円\n4.ごはん 150円      {temp_dep[3]}        {(menu[3][1])*(temp_dep[3])}円\n\n\n———\n総売上金額 {(menu[0][1])*(temp_dep[0])+(menu[1][1])*(temp_dep[1])+(menu[2][1])*(temp_dep[2])+(menu[3][1])*(temp_dep[3])}円")
             num = int(input("価格を変更する商品の番号を入力して下さい。>"))
