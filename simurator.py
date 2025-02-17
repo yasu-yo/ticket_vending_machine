@@ -13,7 +13,7 @@ def simulate_vending_machine():
     print('\n商品      金額\n=======================\n1.特製ラーメン 1000円\n2.醤油ラーメン 780円\n3.しおラーメン 880円\n4.ごはん 150円')
     
     while True: 
-        choice = input('購入する商品番号(支払いに進む場合はc)>').strip()
+        choice = input('購入する商品番号(支払いに進む場合はc,戻る場合はq)>').strip()
         if choice == 'c':
             print(f'\n 商品　　　　数量\n1.特性ラーメン {menu[0][2]}\n2. 醤油ラーメン{menu[1][2]}\n3.塩ラーメン {menu[2][2]}\n4.ごはん {menu[3][2]}\n===\n合計{total}円')
             break
@@ -21,16 +21,25 @@ def simulate_vending_machine():
             total += menu[int(choice)-1][1]
             menu[int(choice)-1][2] += 1
             temp_dep[int(choice)-1] += 1
+        elif choice == 'q':
+            main()
         else:
             print('1から4、またはcを押してください')
     
     dep = int(input('現金を投入してください>'))
     while True:
         if dep < total:
-            dep += int(input("金額が不足しています！>"))
+            cancel = input(f'{total - dep}円不足しています。キャンセルしますか(y/n)>')
+            if cancel == 'y':
+                total = 0
+                dep = 0
+                break
+            elif cancel == 'n':
+                dep += int(input(f"{total - dep}円不足しています。追加投入してください>"))
         else:
+            print(f'ご購入ありがとうございます。おつり{dep - total}円です')
             break
-    print(f'ご購入ありがとうございます。おつり{dep - total}円です')
+    
     # 必要に応じてグローバル変数をリセットする場合
     menu = [['特製ラーメン', 1000, 0], ['醬油ラーメン', 780, 0], ['塩ラーメン', 880, 0], ['ごはん', 150, 0]]
     # temp_dep = [0, 0, 0, 0]
