@@ -12,7 +12,7 @@ choice_list = []
 
 def simulate_vending_machine():
     global menu, temp_dep, total, cnt_buy, choice_list
-    print('\n商品      金額\n=======================\n1.特製ラーメン 1000円\n2.醤油ラーメン 780円\n3.しおラーメン 880円\n4.ごはん 150円')
+    print(f'\n商品      金額\n=======================\n1.特製ラーメン {menu[0][1]}円\n2.醤油ラーメン {menu[1][1]}円\n3.しおラーメン {menu[2][1]}円\n4.ごはん {menu[3][1]}円')
     
     while True: 
         choice = input('購入する商品番号(支払いに進む場合はc,戻る場合はq)>').strip()
